@@ -1,0 +1,22 @@
+:root {
+  font-family: "Poppins", "Figtree", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
+  color: black;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.gradient-primary{
+  background-color: linear-gradient(135deg, hsl(217 91% 60%), hsl(260 70% 60%));
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+	.scrollbar-hide {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
