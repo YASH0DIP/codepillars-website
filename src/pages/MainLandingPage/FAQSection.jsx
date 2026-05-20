@@ -29,7 +29,7 @@ export default function FAQSection() {
 
   return (
     <section className="py-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6 md:px-2">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1 mb-6 text-sm font-medium text-orange-500 rounded-full border border-orange-200 bg-orange-50">

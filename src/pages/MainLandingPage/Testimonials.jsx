@@ -25,7 +25,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="py-10">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-6 md:px-2">
         {/* Badge */}
         <div className="inline-flex px-4 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-orange-600 text-sm font-semibold mb-6">
           TESTIMONIAL

@@ -5,10 +5,10 @@ import about2 from "../../assets/about2.jpg";
 export default function AboutUs() {
   return (
     <section className="py-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center px-6 md:px-2">
         {/* Left: Image Cluster */}
         <div className="flex items-end gap-6">
-          <div className="w-1/2 aspect-[3/4] rounded-3xl overflow-hidden">
+          <div className="w-1/2 aspect-3/4 rounded-3xl overflow-hidden">
             <img
               src={about2}
               alt="Team meeting"
@@ -16,7 +16,7 @@ export default function AboutUs() {
             />
           </div>
 
-          <div className="w-1/2 aspect-[3/4] rounded-3xl overflow-hidden">
+          <div className="w-1/2 aspect-3/4 rounded-3xl overflow-hidden">
             <img
               src={about1}
               alt="Team working"

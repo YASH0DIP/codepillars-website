@@ -22,7 +22,7 @@ export default function Navbar() {
     "Contact",
   ];
   return (
-    <nav className="absolute top-6 left-6 right-6 flex items-center justify-between px-8 py-4 rounded-full bg-linear-to-r from-[#FEE7C9] via-[#FFF4FF] to-[#E7EAEF] z-50">
+    <nav className="absolute top-6 left-6 right-6 flex items-center justify-between px-8 py-4 rounded-full bg-linear-to-r from-[#FEE7C9] via-[#FFF4FF] to-[#E7EAEF] z-90 shadow-xl shadow-gray-500/10">
       <div className="flex items-center justify-center ml-6 gap-2">
         <img src={logo} alt="CodePillars" className="h-8 scale-300" />
       </div>

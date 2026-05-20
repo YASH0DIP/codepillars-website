@@ -10,8 +10,9 @@ import {
   MessageSquare,
   ShoppingBag,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import {} from "lucide-react";
+import { useEffect, useState } from "react";
 
 // Map companies to their respective icons
 const companies = [
@@ -31,6 +32,29 @@ const stats = [
 ];
 
 export default function TrustedCompanies() {
+  const [isPaused, setIsPaused] = useState(false);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isPaused) {
+      // setTimeout(() => {
+      controls.stop();
+      // }, 500);
+    } else {
+      // setTimeout(() => {
+      controls.start({
+        x: ["0%", "-50%"],
+        transition: {
+          duration: 60,
+          ease: "linear",
+          repeat: Infinity,
+          repeatType: "loop",
+        },
+      });
+      // }, 500);
+    }
+  }, [isPaused, controls]);
+
   return (
     <section
       className="py-8 px-6 bg-[#FDFBF9]"
@@ -56,14 +80,18 @@ export default function TrustedCompanies() {
         <div className="flex overflow-hidden mb-16 py-4 mask-linear-fade">
           <motion.div
             className="flex gap-6 whitespace-nowrap"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 25, ease: "linear", repeat: Infinity }}
+            animate={controls}
+            initial={{ x: "0%" }} // Set initial position
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => {
+              setIsPaused(false);
+            }}
           >
             {[...companies, ...companies].map((company, i) => (
               <motion.div
                 key={i}
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center gap-3 px-8 py-4 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-amber-500 hover:shadow-orange-100 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                whileHover={{ scale: 1.05, y: -1 }}
+                className="flex items-center gap-3 px-8 py-4 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-amber-500 hover:shadow-orange-100 hover:shadow-lg transition-all duration-100 cursor-pointer"
               >
                 <company.icon className="w-6 h-6 text-slate-700" />
                 <span className="text-lg font-bold text-slate-900">

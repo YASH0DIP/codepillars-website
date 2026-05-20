@@ -28,7 +28,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-8 bg-[#0B1120]">
+    <section className="py-8 bg-[#0B1120] px-6 md:px-2">
       {" "}
       {/* Deep Navy Background */}
       <div className="max-w-7xl mx-auto">
@@ -44,7 +44,7 @@ export default function Process() {
         {/* Wrapper for the line and steps */}
         <div className="relative flex flex-col md:flex-row justify-between gap-8 md:gap-4 mt-20">
           {/* The Background Line: spans the entire container width minus the circle sizes */}
-          <div className="absolute max-w-5xl mx-auto top-10 left-10 right-10 h-[2px] bg-orange-500/30 hidden md:block" />
+          <div className="absolute max-w-5xl mx-auto top-10 left-10 right-10 h-0.5 bg-orange-500/30 hidden md:block" />
 
           {steps.map((step, i) => (
             <div
@@ -60,7 +60,7 @@ export default function Process() {
                 <h3 className="text-xl font-bold text-white mb-2">
                   {step.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed max-w-[200px]">
+                <p className="text-slate-400 text-sm leading-relaxed max-w-50">
                   {step.desc}
                 </p>
               </div>

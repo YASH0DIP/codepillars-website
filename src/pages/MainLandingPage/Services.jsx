@@ -3,6 +3,7 @@ import webDevImg from "../../assets/web-dev.jpg";
 import mobileDevImg from "../../assets/mobile-dev.jpg";
 import uiUxImg from "../../assets/ui-ux.jpg";
 import backendDevimg from "../../assets/backend-dev.jpg";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -37,7 +38,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-8 bg-[#FDFBF9]">
+    <section className="py-8 px-6 md:px-2 bg-[#FDFBF9]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-orange-600 text-xs font-semibold mb-6">
@@ -54,14 +55,14 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="space-y-32">
+        <div className="space-y-20">
           {services.map((service) => (
             <div
               key={service.id}
-              className={`flex flex-col lg:flex-row items-center gap-12`}
+              className={`flex flex-col lg:flex-row items-center group cursor-pointer gap-6`}
             >
               {/* Text Content */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 self-start md:self-auto space-y-6">
                 <h3 className="text-3xl font-bold text-slate-900">
                   {service.title}
                 </h3>
@@ -75,34 +76,38 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                
               </div>
 
               {/* Image & Number Layer */}
               <div className="flex-1 relative flex justify-center">
                 <div className="relative w-full max-w-md">
-                  <img
+                  <motion.img
                     src={service.image}
                     alt={service.title}
-                    className="w-28 h-36 border border-gray-100 object-cover rounded-lg z-10 relative ml-16 rotate-30"
+                    className="opacity-0 group-hover:opacity-100 z-10 w-28 h-36 cursor-pointer object-cover rounded-lg border border-gray-100 relative md:ml-18 rotate-12 group-hover:scale-150 group-hover:rotate-6 transition-all duration-500"
+                    style={{ originX: 0.5, originY: 0.5 }}
+                    // whileHover={{ scale: 1.5 }}
+                    // transition={{ duration: 0.5, ease: "easeInOut" }}
                   />
-                  <div className="absolute -bottom-10 right-20 text-[40px] font-bold text-orange-200 z-0 select-none bg-linear-to-t from-transparent via-white/80 to-blue-50 px-10 py-5 rounded-full">
+                  <div className="absolute bottom-6 md:-bottom-10 md:right-32 text-[28px] font-bold text-orange-300 z-0 select-none bg-linear-to-t from-orange-500/0 via-orange-500/5 to-blue-orange/10 px-12 py-10 rounded-full">
                     {service.id}
                   </div>
                 </div>
               </div>
-              <div><p className="text-slate-500 max-w-md">{service.desc}</p>
+              <div>
+                <p className="text-slate-500 max-w-md">{service.desc}</p>
                 <a
                   href="#"
                   className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all"
                 >
                   Explore Service <ArrowRight size={18} />
-                </a></div>
+                </a>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-24 text-center">
+        <div className="pt-20 w-full text-center md:-ml-6">
           <button className="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800 transition-colors inline-flex items-center gap-2">
             View All Services <ArrowRight size={20} />
           </button>

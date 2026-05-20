@@ -27,7 +27,7 @@ export default function Hero() {
           <span className="text-orange-500">That Scale.</span>
         </h1>
 
-        <p className="text-lg text-slate-600 max-w-4xl mx-auto mb-10 leading-relaxed text-white">
+        <p className="text-lg max-w-4xl mx-auto mb-10 leading-relaxed text-white">
           Transforming ideas into powerful web, mobile, AI and cloud
           solutions—engineered for ambitious teams that refuse to ship anything
           average.
@@ -46,7 +46,7 @@ export default function Hero() {
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="flex items-center gap-4 bg-white p-6 rounded-2xl border border-slate-100 hover:border-amber-500 shadow-sm min-w-[200px]"
+              className="flex items-center gap-4 bg-white p-6 rounded-2xl border border-slate-100 hover:border-amber-500 shadow-sm min-w-50"
             >
               <div className="p-2 bg-orange-50 rounded-lg text-orange-500">
                 <stat.icon size={24} />

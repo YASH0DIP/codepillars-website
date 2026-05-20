@@ -25,6 +25,41 @@ const projects = [
     image: labelAkshi,
     large: false,
   },
+  {
+    category: "Web3 • Multi-Portal • CRM",
+    title: "BloomVerse Web3 Platform",
+    desc: "A large-scale Web3 platform with multiple portals, a custom CRM and blockchain-based workflows for crypto-driven operations.",
+    image: bloomverse,
+    large: true,
+  },
+  {
+    category: "Religious • Informational Platform",
+    title: "Jain Artist Market Place",
+    desc: "A serene and structured website designed for a Jain temple to showcase activities, information, and community initiatives.",
+    image: jainMarket,
+    large: true,
+  },
+  {
+    category: "Fashion Brand • Portfolio Website",
+    title: "Label Akshi — Fashion Portfolio",
+    desc: "A premium portfolio website for a clothing brand, highlighting collections, brand identity and creative storytelling.",
+    image: labelAkshi,
+    large: false,
+  },
+  {
+    category: "Religious • Informational Platform",
+    title: "Jain Artist Market Place",
+    desc: "A serene and structured website designed for a Jain temple to showcase activities, information, and community initiatives.",
+    image: jainMarket,
+    large: false,
+  },
+  {
+    category: "Web3 • Multi-Portal • CRM",
+    title: "BloomVerse Web3 Platform",
+    desc: "A large-scale Web3 platform with multiple portals, a custom CRM and blockchain-based workflows for crypto-driven operations.",
+    image: bloomverse,
+    large: true,
+  },
 ];
 
 export default function Portfolio() {
@@ -47,54 +82,29 @@ export default function Portfolio() {
           </button>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Large Card */}
-          <div>
-            <div className="border border-gray-100 shadow-lg rounded-3xl overflow-hidden flex flex-col group">
-              <div className="h-96 bg-gray-200 overflow-hidden">
+        {/* Dynamic Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 grid-auto-flow-dense">
+          {projects.map((p, i) => (
+            <div
+              key={i}
+              className={`border border-gray-100 rounded-3xl shadow-lg overflow-hidden flex flex-col group ${p.large ? "md:col-span-2" : "col-span-1"}`}
+            >
+              <div className={`overflow-hidden ${p.large ? "h-80" : "h-64"}`}>
                 <img
-                  src={projects[0].image}
-                  alt={projects[0].title}
+                  src={p.image}
+                  alt={p.title}
                   className="w-full h-full object-fill group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-8">
                 <span className="text-orange-400 text-sm font-medium">
-                  {projects[0].category}
+                  {p.category}
                 </span>
-                <h3 className="text-2xl font-bold mt-2 mb-4">
-                  {projects[0].title}
-                </h3>
-                <p className="text-slate-400">{projects[0].desc}</p>
+                <h3 className="text-2xl font-bold mt-2 mb-4">{p.title}</h3>
+                <p className="text-slate-400">{p.desc}</p>
               </div>
             </div>
-          </div>
-
-          {/* Stacked Small Cards */}
-          <div className="flex flex-col gap-6">
-            {projects.slice(1).map((p, i) => (
-              <div
-                key={i}
-                className="border border-gray-100 rounded-3xl shadow-lg overflow-hidden flex flex-col group"
-              >
-                <div className="h-64 bg-gray-200">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-full object-fill group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-8">
-                  <span className="text-orange-400 text-sm font-medium">
-                    {p.category}
-                  </span>
-                  <h3 className="text-2xl font-bold mt-2 mb-4">{p.title}</h3>
-                  <p className="text-slate-400">{p.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>

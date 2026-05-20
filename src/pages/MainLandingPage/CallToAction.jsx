@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function CallToAction() {
   return (
-    <section className="py-8">
+    <section className="py-8 px-6 md:px-2">
       <div className="max-w-7xl mx-auto bg-linear-to-t from-[#E7EAEF] via-[#FDE6CA]/50 to-[#FDE6CA] rounded-[3rem] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Content Side */}
         <div className="flex-1">
