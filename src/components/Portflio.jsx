@@ -117,18 +117,18 @@ const projects = [
   },
 ];
 
-export default function Portfolio({ number }) {
+export default function Portfolio({ number = 0 }) {
   const [activeTab, setActiveTab] = useState("All");
   const navigate = useNavigate();
-  const paginatedPortfolios = !number ? projects : projects?.slice(0, number);
+  const paginatedPortfolios = number === 0 ? projects : projects?.slice(0, number);
   const filtered = useMemo(() => {
-    if (activeTab === "All" && !number) {
+    if (activeTab === "All") {
       return paginatedPortfolios;
     }
     return paginatedPortfolios.filter((project) =>
       project?.type.includes(activeTab.toLowerCase()),
     );
-  }, [paginatedPortfolios, activeTab, number]);
+  }, [paginatedPortfolios, activeTab]);
 
   return (
     <section className="py-8 px-6">
@@ -144,7 +144,7 @@ export default function Portfolio({ number }) {
               <span className="text-orange-500">Outcomes we measured.</span>
             </h2>
           </div>
-          {number && (
+          {number !== 0 && (
             <button
               onClick={() => navigate("/portfolio")}
               className="flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-all"
@@ -154,7 +154,7 @@ export default function Portfolio({ number }) {
           )}
         </div>
 
-        {!number && (
+        {number === 0 && (
           <div className="flex flex-wrap items-center gap-4 mb-8">
             {[
               "All",

@@ -21,9 +21,9 @@ const IndustriesSection = () => {
       </div>
 
       {/* Heading */}
-      <h2 className="text-4xl md:text-6xl font-bold text-[#0a142e] mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#0a142e] mb-12">
         Domain depth across{" "}
-        <span className="text-[#f59e0b]">every vertical.</span>
+        <span className="text-orange-400">every vertical.</span>
       </h2>
 
       {/* Grid of Pills */}
