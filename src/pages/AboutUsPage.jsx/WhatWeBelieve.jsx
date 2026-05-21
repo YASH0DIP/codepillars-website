@@ -42,7 +42,7 @@ export default function WhatWeBelieve() {
           Four principles <span className="text-orange-400">we don't compromise.</span>{" "}
           {/* Engineered For <span className="text-orange-500">Scale.</span> */}
         </h2>
-        <p className="text-slate-600 text-lg mb-16">
+        <p className="text-slate-600 text-lg mb-8 md:mb-16">
           The reasons our clients keep coming back, project after project.
         </p>
 
@@ -54,7 +54,7 @@ export default function WhatWeBelieve() {
               whileHover={{ y: -8 }}
               transition={{ type: "spring", stiffness: 300 }}
               // className="bg-white p-8 rounded-3xl border border-slate-100 shadow-none hover:shadow-[0_4px_20px_5px_rgba(0,0,0,0.05)] hover:shadow-4xl hover:-translate-y-2 cursor-pointer transition-all duration-700"
-              className="bg-white p-8 rounded-3xl border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 cursor-pointer"
+              className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300 cursor-pointer"
             >
               <div className="w-12 h-12 flex items-center justify-center bg-orange-50 text-orange-300 rounded-2xl mb-6">
                 <feature.icon size={24} strokeWidth={2.5} />

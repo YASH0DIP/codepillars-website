@@ -126,8 +126,8 @@ const Footer = () => {
           </p>
 
           <div className="flex gap-6 text-lg text-gray-400">
-            <span className="hover:text-white cursor-pointer">Privacy</span>
-            <span className="hover:text-white cursor-pointer">Terms</span>
+            <Link to="/privacy-policy" className="hover:text-white cursor-pointer">Privacy</Link>
+            <Link to="/terms-conditions" className="hover:text-white cursor-pointer">Terms</Link>
           </div>
         </div>
       </div>

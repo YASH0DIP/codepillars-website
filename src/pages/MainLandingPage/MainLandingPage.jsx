@@ -1,11 +1,11 @@
 import AboutUs from "./About"
 import CallToAction from "./CallToAction"
-import FAQSection from "./FAQSection"
+import FAQSection from "../../components/FAQSection"
 import Features from "./Features"
 import Hero from "./Hero"
-import Portfolio from "./Portflio"
+import Portfolio from "../../components/Portflio"
 import Process from "./Process"
-import Services from "./Services"
+import Services from "../../components/Services"
 import Testimonials from "./Testimonials"
 import TrustedCompanies from "./TrustedCompanies"
 
@@ -15,9 +15,9 @@ function MainLandingPage() {
         <Hero />
         <TrustedCompanies />
         <Features />
-        <Services />
+        <Services number={4}/>
         <Process />
-        <Portfolio />
+        <Portfolio number={6}/>
         <AboutUs />
         <Testimonials />
         <FAQSection />

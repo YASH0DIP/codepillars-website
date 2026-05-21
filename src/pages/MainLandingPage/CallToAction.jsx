@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function CallToAction() {
   return (
     <section className="py-8 px-6 md:px-2">
-      <div className="max-w-7xl mx-auto bg-linear-to-t from-[#E7EAEF] via-[#FDE6CA]/50 to-[#FDE6CA] rounded-[3rem] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="max-w-7xl mx-auto bg-linear-to-t from-[#E7EAEF] via-[#FDE6CA]/50 to-[#FDE6CA] rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Content Side */}
         <div className="flex-1">
           {/* <div className="inline-block px-4 py-1 mb-6 text-sm font-semibold text-orange-700 bg-white/50 rounded-full">
@@ -16,7 +16,7 @@ export default function CallToAction() {
               Let's engineer it into a category-defining product.
             </span>
           </h2>
-          <p className="text-slate-900/90 text-lg mb-8 max-w-lf">
+          <p className="text-slate-900/90 text-lg mb-4 md:mb-8 max-w-lf">
             From a single brief to a fully-shipped platform — our team takes
             ownership of design, engineering and growth from day one.
           </p>

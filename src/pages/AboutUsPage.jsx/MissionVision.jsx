@@ -20,12 +20,12 @@ export default function MissionVision() {
             key={index}
             whileHover={{ y: -8 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="p-12 rounded-2xl border-2 border-slate-50 hover:border-orange-200 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300"
+            className="p-6 md:p-12 rounded-2xl border-2 border-slate-50 hover:border-orange-200 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-shadow duration-300"
           >
             <h3 className="text-orange-400 font-bold text-2xl tracking-widest mb-6">
               {item.title}
             </h3>
-            <p className="text-slate-900 text-xl md:text-xl leading-relaxed font-medium">
+            <p className="text-slate-900 text-lg md:text-xl leading-relaxed font-medium">
               {item.desc}
             </p>
           </motion.div>

@@ -4,7 +4,7 @@ import teamWorking from "../../assets/team-working.jpg";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-250 md:h-190 overflow-hidden flex items-center justify-center bg-[linear-gradient(210deg,#FFF0DD_21.63%,#E7EAEF_89.99%)]">
+    <section className="relative w-full h-280 md:h-190 overflow-hidden flex items-center justify-center bg-[linear-gradient(210deg,#FFF0DD_21.63%,#E7EAEF_89.99%)]">
       <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-40">
         {/* Left Content */}
         <div className="flex-1 space-y-4 md:space-y-8 px-6 mt-16 md:mt-32 md:px-2">
@@ -26,20 +26,20 @@ export default function HeroSection() {
 
           <div className="grid grid-cols-2 gap-4 md:hidden">
             
-            <div className="bg-white p-4 rounded-xl shadow-sm shadow-gray-800/20 z-90 w-48">
+            <div className="bg-white p-4 rounded-xl shadow-sm shadow-gray-800/20 z-90 w-40 md:w-48">
               <p className="text-xs text-slate-500">Project Progress</p>
               <p className="text-xl font-bold">78%</p>
             </div>
-            <div className="bg-white p-4 rounded-xl shadow-sm shadow-gray-800/20 z-90 w-48">
+            <div className="bg-white p-4 rounded-xl shadow-sm shadow-gray-800/20 z-90 w-40 md:w-48">
               <p className="text-xs text-slate-500">Total Clients</p>
               <p className="text-xl font-bold">500+</p>
             </div>
-            <div className="bg-white p-4 rounded-xl shadow-sm shadow-gray-800/20 z-90 w-48">
+            <div className="bg-white p-4 rounded-xl shadow-sm shadow-gray-800/20 z-90 w-40 md:w-48">
               <p className="text-xs text-slate-500">User Growth</p>
               <p className="text-xl font-bold">12.5K</p>
             </div>
 
-            <div className="bg-white p-4 rounded-xl shadow-sm shadow-gray-800/20 z-90 w-48">
+            <div className="bg-white p-4 rounded-xl shadow-sm shadow-gray-800/20 z-90 w-40 md:w-48">
               <p className="text-xs text-slate-500">Revenue Overview</p>
               <p className="text-xl font-bold">$45,231</p>
             </div>
@@ -121,7 +121,7 @@ function TrustedClients({
   text = "Trusted by 50+ clients worldwide",
 }) {
   return (
-    <div className="flex items-center justify-start gap-4">
+    <div className="flex flex-wrap items-center justify-start gap-4">
       {/* Image Stack */}
       <div className="flex -space-x-3">
         {MOCK_PROFILES.map((profile) => (
