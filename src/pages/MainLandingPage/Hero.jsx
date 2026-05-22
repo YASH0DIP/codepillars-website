@@ -1,5 +1,5 @@
 import { ArrowUpRight, Star, Briefcase, Users } from "lucide-react";
-import heroImg from "../../assets/hero-bg.jpg";
+// import heroImg from "../../assets/hero-bg.jpg";
 import { useNavigate } from "react-router-dom";
 
 const stats = [
@@ -12,11 +12,25 @@ export default function Hero() {
   const navigate = useNavigate();
   return (
     <section
-      className="relative pt-32 pb-20 px-6 text-center bg-cover bg-no-repeat"
-      style={{ backgroundImage: `url(${heroImg})` }}
+      // className="relative pt-32 pb-20 px-6 text-center bg-cover bg-no-repeat"
+      // style={{ backgroundImage: `url(${heroImg})` }}
+      className="relative pt-32 pb-20 px-6 text-center overflow-hidden"
     >
-      {/* Optional Overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-[#FDFBF9]/30 pointer-events-none" />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source
+          src="https://appinventiv.com/wp-content/themes/twentynineteen-child/new-images/video/appi-home-hero-video.mp4"
+          type="video/mp4"
+        />
+      </video>
+      {/* Optional Overlay to ensure text radability */}
+      {/* <div className="absolute inset-0 bg-[#FDFBF9]/30 pointer-events-none" /> */}
+      <div className="absolute inset-0 bg-gray-500/60 pointer-events-none" />
 
       {/* Content wrapper to keep it above the overlay */}
       <div className="relative z-10">
@@ -24,7 +38,10 @@ export default function Hero() {
           <span>✨</span> Digital Product & AI Development Agency
         </div>
 
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6 max-w-5xl mx-auto">
+        <h1
+          className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto"
+          // className="text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6 max-w-5xl mx-auto"
+        >
           We Build Digital Experiences <br />
           <span className="text-orange-500">That Scale.</span>
         </h1>
@@ -42,7 +59,10 @@ export default function Hero() {
           >
             Start Your Project <ArrowUpRight size={20} />
           </button>
-          <button onClick={()=> navigate("/portfolio")} className="flex items-center gap-2 bg-white border border-slate-200 px-8 py-4 rounded-full font-semibold hover:border-slate-300">
+          <button
+            onClick={() => navigate("/portfolio")}
+            className="flex items-center gap-2 bg-white border border-slate-200 px-8 py-4 rounded-full font-semibold hover:border-slate-300"
+          >
             View Our Work <ArrowUpRight size={20} />
           </button>
         </div>
