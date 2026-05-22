@@ -13,6 +13,9 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import ContactUsPage from "./pages/ContactUsPage";
 import { Toaster } from "react-hot-toast";
+import BlogsPage from "./pages/BlogsPage/BlogsPage";
+import ArticleDetailsPage from "./pages/ArticleDetailsPage";
+import CareersPage from "./pages/CareersPage/CareersPage";
 
 function App() {
   const location = useLocation();
@@ -56,6 +59,30 @@ function App() {
               element={
                 <PageWrapper>
                   <PortfolioPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/blogs"
+              element={
+                <PageWrapper>
+                  <BlogsPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/blogs/:id"
+              element={
+                <PageWrapper>
+                  <ArticleDetailsPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/career"
+              element={
+                <PageWrapper>
+                  <CareersPage />
                 </PageWrapper>
               }
             />

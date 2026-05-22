@@ -4,6 +4,7 @@ import jainMarket from "../assets/jain-artist.png";
 import labelAkshi from "../assets/label-akshi.png";
 import { useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const projects = [
   {
@@ -120,7 +121,8 @@ const projects = [
 export default function Portfolio({ number = 0 }) {
   const [activeTab, setActiveTab] = useState("All");
   const navigate = useNavigate();
-  const paginatedPortfolios = number === 0 ? projects : projects?.slice(0, number);
+  const paginatedPortfolios =
+    number === 0 ? projects : projects?.slice(0, number);
   const filtered = useMemo(() => {
     if (activeTab === "All") {
       return paginatedPortfolios;
@@ -141,7 +143,7 @@ export default function Portfolio({ number = 0 }) {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
               Products we shipped. <br />
-              <span className="text-orange-500">Outcomes we measured.</span>
+              <span className="text-orange-400">Outcomes we measured.</span>
             </h2>
           </div>
           {number !== 0 && (
@@ -177,43 +179,49 @@ export default function Portfolio({ number = 0 }) {
         {/* Dynamic Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 grid-flow-row-dense">
           {filtered?.map((p, i) => (
-            <div
-              key={i}
-              className={`border border-gray-100 rounded-3xl shadow-lg overflow-hidden flex flex-col group ${p.span} ${p.height} h-3/4`}
-            >
-              <div className={`h-[60%] overflow-hidden`}>
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-full object-fill group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-8">
-                <span className="text-orange-400 text-sm font-medium">
-                  {p.category}
-                </span>
-                <h3 className="text-2xl font-bold mt-2 mb-4">{p.title}</h3>
-                <p className="text-slate-400">{p.desc}</p>
-              </div>
-
-              <div className="flex items-center justify-between pb-6 px-8">
-                <div className="flex items-center gap-2">
-                  {p?.tags?.map((t) => (
-                    <span className="px-2 py-0.5 border border-gray-200 bg-gray-50 rounded-3xl text-xs text-gray-500">
-                      {t}
-                    </span>
-                  ))}
+            <AnimatePresence>
+              <motion.div
+                key={i}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -8 }}
+                className={`border border-gray-100 rounded-3xl shadow-lg overflow-hidden flex flex-col group ${p.span} ${p.height} h-3/4`}
+              >
+                <div className={`h-[60%] overflow-hidden`}>
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-full object-fill group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <div
+                <div className="p-8">
+                  <span className="text-orange-400 text-sm font-medium">
+                    {p.category}
+                  </span>
+                  <h3 className="text-2xl font-bold mt-2 mb-4">{p.title}</h3>
+                  <p className="text-slate-400">{p.desc}</p>
+                </div>
+
+                <div className="flex items-center justify-between pb-6 px-8">
+                  <div className="flex items-center gap-2">
+                    {p?.tags?.map((t) => (
+                      <span className="px-2 py-0.5 border border-gray-200 bg-gray-50 rounded-3xl text-xs text-gray-500">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  {/* <div
                   className="cursor-pointer p-1 rounded-full hover:bg-gray-50"
                   onClick={() => {
                     window.location = p.link;
                   }}
                 >
                   <ArrowUpRight />
+                </div> */}
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
           ))}
         </div>
       </div>

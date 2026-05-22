@@ -6,6 +6,7 @@ import backendDevimg from "../assets/backend-dev.jpg";
 import cloudimg from "../assets/cloud.jpg";
 import aiDevimg from "../assets/ai-dev.jpg";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -53,6 +54,7 @@ const services = [
 ];
 
 export default function Services({ number }) {
+  const navigate = useNavigate();
   const paginatedServices = !number
     ? services?.slice(0)
     : services?.slice(0, number);
@@ -60,7 +62,7 @@ export default function Services({ number }) {
     <section className="py-8 px-6 md:px-2 bg-[#FDFBF9]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-orange-600 text-xs font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-200 bg-orange-50 text-orange-600 text-sm font-semibold mb-6">
             ⚡ Our Core Services
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -81,11 +83,11 @@ export default function Services({ number }) {
               className={`flex flex-col lg:flex-row items-center group cursor-pointer gap-6`}
             >
               {/* Text Content */}
-              <div className="flex-1 self-start md:self-auto space-y-6">
-                <h3 className="text-3xl font-bold text-slate-900">
+              <div className="flex-1 self-start ml-4 md:ml-2 md:self-auto space-y-6">
+                <h3 className="text-3xl scale-110 font-bold text-slate-900">
                   {service.title}
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-3 scale-110">
                   {service.items.map((item) => (
                     <li
                       key={item}
@@ -113,11 +115,13 @@ export default function Services({ number }) {
                   </div>
                 </div>
               </div>
-              <div>
-                <p className="text-slate-500 max-w-sm">{service.desc}</p>
+              <div className="scale-110 ml-4 md:ml-2">
+                <p className="text-slate-500 max-w-sm">
+                  {service.desc}
+                </p>
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all"
+                  className="inline-flex items-center mt-2 gap-2 text-orange-600 font-semibold hover:gap-3 transition-all"
                 >
                   Explore Service <ArrowRight size={18} />
                 </a>
@@ -128,7 +132,10 @@ export default function Services({ number }) {
 
         {number && (
           <div className="pt-20 w-full text-center md:-ml-6">
-            <button className="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800 transition-colors inline-flex items-center gap-2">
+            <button
+              onClick={() => navigate("/services")}
+              className="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800 transition-colors inline-flex items-center gap-2"
+            >
               View All Services <ArrowRight size={20} />
             </button>
           </div>

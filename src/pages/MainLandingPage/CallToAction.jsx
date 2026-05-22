@@ -1,6 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function CallToAction() {
+  const navigate = useNavigate();
   return (
     <section className="py-8 px-6 md:px-2">
       <div className="max-w-7xl mx-auto bg-linear-to-t from-[#E7EAEF] via-[#FDE6CA]/50 to-[#FDE6CA] rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12">
@@ -32,7 +34,10 @@ export default function CallToAction() {
                 <ArrowUpRight size={64} className="text-orange-500" strokeWidth={1.5} />
              </div>
           </div> */}
-          <button className="flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition-all shadow-lg">
+          <button
+            onClick={() => navigate("/contact")}
+            className="flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition-all shadow-lg"
+          >
             Start Your Project <ArrowUpRight size={20} />
           </button>
         </div>

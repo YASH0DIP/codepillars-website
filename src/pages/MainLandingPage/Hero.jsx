@@ -1,5 +1,6 @@
 import { ArrowUpRight, Star, Briefcase, Users } from "lucide-react";
 import heroImg from "../../assets/hero-bg.jpg";
+import { useNavigate } from "react-router-dom";
 
 const stats = [
   { icon: Star, label: "Rating", value: "4.9" },
@@ -8,6 +9,7 @@ const stats = [
 ];
 
 export default function Hero() {
+  const navigate = useNavigate();
   return (
     <section
       className="relative pt-32 pb-20 px-6 text-center bg-cover bg-no-repeat"
@@ -34,10 +36,13 @@ export default function Hero() {
         </p>
 
         <div className="flex items-center justify-center gap-4 mb-16">
-          <button className="flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800">
+          <button
+            onClick={() => navigate("/contact")}
+            className="cursor-pointer flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800"
+          >
             Start Your Project <ArrowUpRight size={20} />
           </button>
-          <button className="flex items-center gap-2 bg-white border border-slate-200 px-8 py-4 rounded-full font-semibold hover:border-slate-300">
+          <button onClick={()=> navigate("/portfolio")} className="flex items-center gap-2 bg-white border border-slate-200 px-8 py-4 rounded-full font-semibold hover:border-slate-300">
             View Our Work <ArrowUpRight size={20} />
           </button>
         </div>
