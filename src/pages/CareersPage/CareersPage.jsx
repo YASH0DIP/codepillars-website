@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
 
 // Validation Schema
 const contactSchema = z.object({
@@ -24,6 +25,10 @@ const contactSchema = z.object({
   budget: z.string().min(1, "Please select job role"),
   details: z.string().optional(),
 });
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const CareersPage = () => {
   const {
@@ -35,11 +40,28 @@ const CareersPage = () => {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log("Form Submitted:", data);
-    toast.success("Message sent successfully!");
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          fullName: data.fullName,
+          email: data.email,
+          title: `Job Application Submitted By ${data.fullName}`,
+          message: `${data.details}, Role: ${data.budget}, Profile URL: ${data.company}`,
+        },
+        PUBLIC_KEY,
+      );
+
+      toast.success("Message sent successfully! 🎉");
+      reset();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message. Try again.");
+    }
   };
+
   return (
     <div className="max-w-7xl mx-auto pt-40 md:pt-44">
       <div className="mb-16 px-6 md:px-2">
@@ -115,10 +137,9 @@ const CareersPage = () => {
               <select
                 {...register("budget")}
                 className={`w-full p-3 border rounded-xl ${errors.budget ? "border-red-500" : "border-gray-200"}`}
-                value=""
               >
-                <option value="">Role</option>
-                <option value="frontend">Frontend Engineer</option>
+                <option>Frontend Engineer</option>
+                <option>Backend Engineer</option>
               </select>
               <ErrorText message={errors.budget?.message} />
             </div>

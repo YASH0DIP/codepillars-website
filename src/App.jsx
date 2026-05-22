@@ -79,7 +79,7 @@ function App() {
               }
             />
             <Route
-              path="/career"
+              path="/careers"
               element={
                 <PageWrapper>
                   <CareersPage />

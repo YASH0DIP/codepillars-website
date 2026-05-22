@@ -3,6 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Phone, MapPin, Calendar } from "lucide-react";
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
 
 // Validation Schema
 const contactSchema = z.object({
@@ -12,6 +13,10 @@ const contactSchema = z.object({
   budget: z.string(),
   details: z.string().min(10, "Please provide more project details"),
 });
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const ContactUsPage = () => {
   //   const [openFaq, setOpenFaq] = useState(0);
@@ -24,10 +29,26 @@ const ContactUsPage = () => {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log("Form Submitted:", data);
-    toast.success("Message sent successfully!");
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          fullName: data.fullName,
+          email: data.email,
+          title: `Contact Form Submitted By ${data.company}`,
+          message: `${data.details}, Budget: ${data.budget}`,
+        },
+        PUBLIC_KEY,
+      );
+
+      toast.success("Message sent successfully! 🎉");
+      reset();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message. Try again.");
+    }
   };
 
   return (
@@ -121,6 +142,7 @@ const ContactUsPage = () => {
             >
               <option>Under $25K</option>
               <option>$25K - $50K</option>
+              <option>$50K - $100K</option>
             </select>
 
             <div className="mt-4">

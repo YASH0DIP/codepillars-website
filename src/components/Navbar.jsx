@@ -20,7 +20,7 @@ export default function Navbar() {
     "Services",
     "Portfolio",
     "Blogs",
-    "Career",
+    "Careers",
     "Contact",
   ];
 
