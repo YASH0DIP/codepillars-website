@@ -79,7 +79,7 @@ export default function TrustedCompanies() {
 
         <div className="flex overflow-hidden mb-16 py-4 mask-linear-fade">
           <motion.div
-            className="flex gap-6 whitespace-nowrap"
+            className="flex gap-8 whitespace-nowrap"
             animate={controls}
             initial={{ x: "0%" }} // Set initial position
             onMouseEnter={() => setIsPaused(true)}
@@ -90,7 +90,7 @@ export default function TrustedCompanies() {
             {[...companies, ...companies].map((company, i) => (
               <motion.div
                 key={i}
-                whileHover={{ scale: 1.05, y: -1 }}
+                whileHover={{ scale: 1.25, y: -1 }}
                 className="flex items-center gap-3 px-8 py-4 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-amber-500 hover:shadow-orange-100 hover:shadow-lg transition-all duration-100 cursor-pointer"
               >
                 <company.icon className="w-6 h-6 text-slate-700" />

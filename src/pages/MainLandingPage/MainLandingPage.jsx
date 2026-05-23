@@ -17,7 +17,7 @@ function MainLandingPage() {
         <Features />
         <Services number={4}/>
         <Process />
-        <Portfolio number={6}/>
+        <Portfolio number={5}/>
         <AboutUs />
         <Testimonials />
         <FAQSection />

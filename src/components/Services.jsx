@@ -80,19 +80,14 @@ export default function Services({ number }) {
           {paginatedServices?.map((service) => (
             <div
               key={service.id}
-              className={`flex flex-col lg:flex-row items-center group cursor-pointer gap-6`}
+              className="flex flex-col lg:flex-row md:items-center gap-8 md:gap-6"
             >
               {/* Text Content */}
-              <div className="flex-1 self-start ml-4 md:ml-2 md:self-auto space-y-6">
-                <h3 className="text-3xl scale-110 font-bold text-slate-900">
-                  {service.title}
-                </h3>
-                <ul className="space-y-3 scale-110">
+              <div className="flex-1 space-y-4">
+                <h3 className="text-3xl font-bold text-slate-900">{service.title}</h3>
+                <ul className="space-y-2">
                   {service.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center text-slate-600 before:content-['•'] before:mr-2 before:text-orange-500"
-                    >
+                    <li key={item} className="flex items-center text-slate-600 before:content-['•'] before:mr-2 before:text-orange-500">
                       {item}
                     </li>
                   ))}
@@ -100,28 +95,34 @@ export default function Services({ number }) {
               </div>
 
               {/* Image & Number Layer */}
-              <div className="flex-1 relative flex justify-center">
-                <div className="relative w-full max-w-md">
-                  <motion.img
+              <div className="flex-1 relative flex justify-center items-center">
+                <motion.div 
+                  initial={{ opacity: 0, rotateY: -45, rotateX: 10, scale: 0.8 }}
+                  whileInView={{ opacity: 1, rotateY: 0, rotateX: 0, scale: 1 }}
+                  whileHover={{ rotateY: 5, scale: 1.05 }} // Subtle 3D tilt on hover
+                  transition={{ duration: 1.5, ease: "backOut" }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="relative w-full max-w-sm"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <img
                     src={service.image}
                     alt={service.title}
-                    className="opacity-0 group-hover:opacity-100 z-10 w-28 h-36 cursor-pointer object-cover rounded-lg border border-gray-100 relative md:ml-18 rotate-12 group-hover:scale-150 group-hover:rotate-6 transition-all duration-500"
-                    style={{ originX: 0.5, originY: 0.5 }}
-                    // whileHover={{ scale: 1.5 }}
-                    // transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="w-120 md:w-64 h-52 md:h-64 object-cover rounded-4xl shadow-xl shadow-orange-100"
                   />
-                  <div className="absolute bottom-6 md:bottom-0 md:right-32 text-[28px] font-bold text-orange-300 z-0 select-none bg-linear-to-t from-orange-500/0 via-orange-500/5 to-blue-orange/10 px-12 py-10 rounded-full">
+                  {/* Decorative ID Number */}
+                  <div className="absolute -top-6 -left-4 md:-left-10 text-6xl font-black text-orange-100 z-[-1]">
                     {service.id}
                   </div>
-                </div>
+                </motion.div>
               </div>
-              <div className="scale-110 ml-4 md:ml-2">
-                <p className="text-slate-500 max-w-sm">
-                  {service.desc}
-                </p>
+
+              {/* Description */}
+              <div className="flex-1 space-y-4">
+                <p className="text-slate-500">{service.desc}</p>
                 <a
                   href="#"
-                  className="inline-flex items-center mt-2 gap-2 text-orange-600 font-semibold hover:gap-3 transition-all"
+                  className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700 transition-colors"
                 >
                   Explore Service <ArrowRight size={18} />
                 </a>
