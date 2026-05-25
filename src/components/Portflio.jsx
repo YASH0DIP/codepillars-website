@@ -258,7 +258,8 @@ function OrbitalPortfolio({ projects, onHover, hoveredIndex }) {
           <motion.div
             key={i}
             onMouseEnter={() => onHover(i)}
-            onMouseLeave={() => onHover(null)}
+            onClick={()=> onHover(i)}
+            // onMouseLeave={() => onHover(null)}
             onTouchStart={() => onHover(i)} // touch support
             animate={{ x, y, scale: isHovered ? 1.2 : 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
@@ -307,7 +308,8 @@ function OrbitalPortfolio({ projects, onHover, hoveredIndex }) {
           <motion.div
             key={globalIndex}
             onMouseEnter={() => onHover(globalIndex)}
-            onMouseLeave={() => onHover(null)}
+            // onMouseLeave={() => onHover(null)}
+            onClick={() => onHover(globalIndex)}
             onTouchStart={() => onHover(globalIndex)}
             animate={{ x, y, scale: isHovered ? 1.2 : 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
@@ -510,7 +512,7 @@ export default function Portfolio({ number = 0 }) {
                   key={item}
                   onClick={() => {
                     setActiveTab(item);
-                    setHoveredIndex(null);
+                    setHoveredIndex(0);
                   }}
                   style={{
                     padding: "7px 16px",
