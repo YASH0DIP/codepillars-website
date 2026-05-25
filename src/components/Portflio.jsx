@@ -253,14 +253,17 @@ function OrbitalPortfolio({ projects, onHover, hoveredIndex }) {
         const x = Math.cos(rad) * outerR;
         const y = Math.sin(rad) * outerR;
         const isHovered = hoveredIndex === i;
+        const isMobile = window.width < 380;
 
         return (
           <motion.div
             key={i}
-            onMouseEnter={() => onHover(i)}
-            onClick={()=> onHover(i)}
+            // onMouseEnter={() => onHover(i)}
+            onMouseEnter={() => !isMobile && onHover(i)}
+            onMouseLeave={() => !isMobile && onHover(null)}
+            onClick={() => onHover(i)}
             // onMouseLeave={() => onHover(null)}
-            onTouchStart={() => onHover(i)} // touch support
+            // onTouchStart={() => onHover(i)} // touch support
             animate={{ x, y, scale: isHovered ? 1.2 : 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             style={{
@@ -303,14 +306,17 @@ function OrbitalPortfolio({ projects, onHover, hoveredIndex }) {
         const x = Math.cos(rad) * innerR;
         const y = Math.sin(rad) * innerR;
         const isHovered = hoveredIndex === globalIndex;
+        const isMobile = window.width < 380;
 
         return (
           <motion.div
             key={globalIndex}
-            onMouseEnter={() => onHover(globalIndex)}
+            // onMouseEnter={() => onHover(globalIndex)}
             // onMouseLeave={() => onHover(null)}
+            onMouseEnter={() => !isMobile && onHover(globalIndex)}
+            onMouseLeave={() => !isMobile && onHover(null)}
             onClick={() => onHover(globalIndex)}
-            onTouchStart={() => onHover(globalIndex)}
+            // onTouchStart={() => onHover(globalIndex)}
             animate={{ x, y, scale: isHovered ? 1.2 : 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             style={{
@@ -494,7 +500,6 @@ export default function Portfolio({ number = 0 }) {
                 <span style={{ color: "#f97316" }}>Outcomes we measured.</span>
               </h2>
             </div>
-            
           </div>
 
           {/* ── Filter tabs ─────────────────────────────────────────── */}
