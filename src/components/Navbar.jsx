@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <nav className="absolute top-6 left-6 right-6 flex items-center justify-between px-8 py-4 rounded-full bg-linear-to-r from-[#FEE7C9] via-[#FFF4FF] to-[#E7EAEF] z-90 shadow-xl shadow-gray-500/10">
       <div onClick={()=> navigate("/")} className="cursor-pointer flex items-center gap-2 ml-2 md:ml-10">
-        <img src={logo} alt="CodePillars" className="h-10 scale-300" />
+        <img src={logo} alt="CodePillars" className="h-10 scale-200 md:scale-300" />
       </div>
 
       {/* Desktop Links */}
