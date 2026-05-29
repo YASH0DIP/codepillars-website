@@ -80,14 +80,19 @@ export default function Services({ number }) {
           {paginatedServices?.map((service) => (
             <div
               key={service.id}
-              className="flex flex-col lg:flex-row md:items-center gap-8 md:gap-6"
+              className="flex group flex-col lg:flex-row md:items-center gap-8 md:gap-6"
             >
               {/* Text Content */}
               <div className="flex-1 space-y-4">
-                <h3 className="text-3xl font-bold text-slate-900">{service.title}</h3>
+                <h3 className="text-3xl font-bold text-slate-900">
+                  {service.title}
+                </h3>
                 <ul className="space-y-2">
                   {service.items.map((item) => (
-                    <li key={item} className="flex items-center text-slate-600 before:content-['•'] before:mr-2 before:text-orange-500">
+                    <li
+                      key={item}
+                      className="flex items-center text-slate-600 before:content-['•'] before:mr-2 before:text-orange-500"
+                    >
                       {item}
                     </li>
                   ))}
@@ -95,12 +100,22 @@ export default function Services({ number }) {
               </div>
 
               {/* Image & Number Layer */}
-              <div className="flex-1 relative flex justify-center items-center">
-                <motion.div 
-                  initial={{ opacity: 0, rotateY: -45, rotateX: 10, scale: 0.8 }}
-                  whileInView={{ opacity: 1, rotateY: 0, rotateX: 0, scale: 1 }}
-                  whileHover={{ rotateY: 5, scale: 1.05 }} // Subtle 3D tilt on hover
-                  transition={{ duration: 1.5, ease: "backOut" }}
+              <div className="flex-1 group relative flex justify-center items-center">
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    rotateY: -45,
+                    rotateX: 10,
+                    scale: 0.85,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    rotateY: -20,
+                    rotateX: 5,
+                    scale: 0.95,
+                  }}
+                  whileHover={{ rotateY: 10, rotateX: 20, scale: 1.05 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                   className="relative w-full max-w-sm"
                   style={{ transformStyle: "preserve-3d" }}

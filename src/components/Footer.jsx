@@ -138,7 +138,7 @@ const Footer = () => {
             </Link>
           </div>
           <p className="text-gray-500 text-sm md:text-lg w-full">
-            © 2026 CodePillars Studio. All rights reserved.
+            © 2026 CodePillars. All rights reserved.
           </p>
         </div>
       </div>
